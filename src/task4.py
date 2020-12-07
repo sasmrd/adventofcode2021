@@ -65,7 +65,6 @@ class Day4:
         for passport in self.data:
             if self.any_missing_fields(passport):
                 valid += 1
-
         return valid
 
     def part_2(self):
