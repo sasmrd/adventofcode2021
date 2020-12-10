@@ -8,16 +8,11 @@ class Day9:
         self.data = InputReader.input_reader_int(file)
 
     def part_1(self, length):
-        lst = self.data.copy()
-        while True:
-            preamble, inputs = self.set_up(length, lst)
-            if len(inputs) < 1:
-                break
-            else:
-                pairs = self.get_pairs(preamble, inputs[0])
-                if len(pairs) == 0:
-                    return inputs[0]
-            lst = lst[1:]
+        for index, entry in enumerate(self.data):
+            preamble = self.data[index:index+length]
+            pairs = self.get_pairs(preamble, self.data[index+length])
+            if len(pairs) == 0:
+                return self.data[index+length]
 
     def part_2(self, number):
         index = self.data.index(number)
