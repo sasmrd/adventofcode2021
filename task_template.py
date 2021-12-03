@@ -1,4 +1,4 @@
-from src.input_reader import InputReader
+from input_reader import InputReader
 
 
 class DayXYZ:
@@ -17,5 +17,6 @@ class DayXYZ:
 
 if __name__ == '__main__':
     dayXYZ = DayXYZ('inputs/taskXYZ.txt')
+    print(dayXYZ.data)
     print(dayXYZ.part_1())
     print(dayXYZ.part_2())
