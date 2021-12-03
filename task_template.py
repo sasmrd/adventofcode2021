@@ -7,12 +7,10 @@ class DayXYZ:
         self.data = InputReader.input_reader_int(file)
 
     def part_1(self):
-        print("part 1")
-        return True
+        return "part 1"
 
     def part_2(self):
-        print("part 2")
-        return True
+        return "part 2"
 
 
 if __name__ == '__main__':
