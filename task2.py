@@ -12,25 +12,25 @@ class Day2:
 
     def part_1(self):
         x, y = 0, 0
-        for instruction in self.final_data:
-            if instruction[0] == 'forward':
-                x += int(instruction[1])
-            elif instruction[0] == 'up':
-                y -= int(instruction[1])
-            elif instruction[0] == 'down':
-                y += int(instruction[1])
+        for instruction, unit in self.final_data:
+            if instruction == 'forward':
+                x += int(unit)
+            elif instruction == 'up':
+                y -= int(unit)
+            elif instruction == 'down':
+                y += int(unit)
         return x * y
 
     def part_2(self):
         x, y, aim = 0, 0, 0
-        for instruction in self.final_data:
-            if instruction[0] == 'forward':
-                x += int(instruction[1])
-                y += (aim * int(instruction[1]))
-            elif instruction[0] == 'up':
-                aim -= int(instruction[1])
-            elif instruction[0] == 'down':
-                aim += int(instruction[1])
+        for instruction, unit in self.final_data:
+            if instruction == 'forward':
+                x += int(unit)
+                y += (aim * int(unit))
+            elif instruction == 'up':
+                aim -= int(unit)
+            elif instruction == 'down':
+                aim += int(unit)
         return x * y
 
 
