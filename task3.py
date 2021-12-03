@@ -11,14 +11,11 @@ class Day3:
         for item in self.data:
             for i, char in enumerate(item):
                 self.dictionary[i][int(char)] += 1
-        gamma = ''
-        epsilon = ''
+        gamma, epsilon = '', ''
         for v in self.dictionary.values():
             gamma += '0' if v[0] > v[1] else '1'
             epsilon += '1' if v[0] > v[1] else '0'
-        bin_gamma = int(gamma, 2)
-        bin_epsilon = int(epsilon, 2)
-        return bin_epsilon * bin_gamma
+        return int(gamma, 2) * int(epsilon, 2)
 
     def part_2(self):
         oxygen_list = self.data
