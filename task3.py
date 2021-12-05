@@ -18,7 +18,7 @@ class Day3:
         return int(gamma, 2) * int(epsilon, 2)
 
     def part_2(self):
-        oxygen_list = self.data
+        oxygen_list = self.data.copy()
         for char_i in range(0, 12):
             temp_dict = {'0': [], '1': []}
             for i, number in enumerate(oxygen_list):
