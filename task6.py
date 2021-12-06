@@ -27,15 +27,8 @@ class Day6:
             temp_dict = {k-1: v for k, v in fish_dict.items()}
             if -1 in temp_dict.keys():
                 new = temp_dict.pop(-1)
-                if temp_dict.get(6):
-                    temp_dict[6] += new
-                else:
-                    temp_dict[6] = new
-
-                if temp_dict.get(8):
-                    temp_dict[8] += new
-                else:
-                    temp_dict[8] = new
+                temp_dict[6] = temp_dict.get(6, 0) + new
+                temp_dict[8] = temp_dict.get(8, 0) + new
             fish_dict = temp_dict
         return sum(fish_dict.values())
 
