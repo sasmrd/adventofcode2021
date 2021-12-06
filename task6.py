@@ -42,6 +42,6 @@ class Day6:
 
 if __name__ == '__main__':
     day6 = Day6('inputs/task6.txt')
-    # print(day6.data)
-    # print(day6.part_1())
+    print(day6.data)
+    print(day6.part_1())
     print(day6.part_2())
