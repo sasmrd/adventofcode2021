@@ -1,13 +1,13 @@
 import re
 from collections import defaultdict
 
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class Day5:
 
     def __init__(self, file: str):
-        self.data = [list(map(int, re.split(' -> |,', x))) for x in InputReader.input_reader_string(file)]
+        self.data = [list(map(int, re.split(' -> |,', x))) for x in Reader.string(file)]
         self.coords = defaultdict(int)
 
     def part_1(self) -> int:

@@ -1,12 +1,12 @@
 from collections import Counter
 
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class Day6:
 
     def __init__(self, file: str):
-        self.data = InputReader.input_reader_one_line_int_list(file)
+        self.data = Reader.one_line_int_list(file)
 
     def part_1(self) -> int:
         fish_list = self.data.copy()

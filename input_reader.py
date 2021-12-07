@@ -1,29 +1,32 @@
-class InputReader:
+from typing import List
+
+
+class Reader:
 
     @staticmethod
-    def input_reader_string(file_name):
+    def string(file_name: str) -> List[str]:
         with open(file_name, "r") as f:
             return [x.strip() for x in f.readlines()]
 
     @staticmethod
-    def input_reader_int(file_name):
+    def integer(file_name: str) -> List[int]:
         with open(file_name, "r") as f:
             return [int(x.strip()) for x in f.readlines()]
 
     @staticmethod
-    def input_reader_list(file_name):
+    def list(file_name: str) -> List[List]:
         with open(file_name, "r") as f:
             return [list(x.strip()) for x in f.readlines()]
 
     @staticmethod
-    def input_reader_one_line_int_list(file_name):
+    def one_line_int_list(file_name: str) -> List[int]:
         with open(file_name, "r") as f:
             line = f.readline()
             lst = line.split(",")
             return [int(x) for x in lst]
 
     @staticmethod
-    def input_reader_string_blank_lines(file_name):
+    def string_blank_lines(file_name: str) -> List[str]:
         with open(file_name, "r") as f:
             temp_list = [x.strip() for x in f.readlines()]
             current = []

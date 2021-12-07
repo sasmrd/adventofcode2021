@@ -1,12 +1,12 @@
 from typing import List
 
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class Day4:
 
     def __init__(self, file: str):
-        self.data = InputReader.input_reader_string_blank_lines(file)
+        self.data = Reader.string_blank_lines(file)
         self.bingo_numbers = self.data[0].split(',')
         self.squares = [x.split() for x in self.data[1:]]
 

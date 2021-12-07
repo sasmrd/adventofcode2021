@@ -1,10 +1,10 @@
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class Day2:
 
     def __init__(self, file: str):
-        self.data = InputReader.input_reader_string(file)
+        self.data = Reader.string(file)
         self.final_data = self.parse_data()
 
     def parse_data(self):

@@ -1,10 +1,10 @@
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class Day1:
 
     def __init__(self, file: str):
-        self.data = InputReader.input_reader_int(file)
+        self.data = Reader.integer(file)
 
     def part_1(self) -> int:
         return sum(1 if self.data[i + 1] > self.data[i] else 0 for i in range(0, len(self.data)-1))

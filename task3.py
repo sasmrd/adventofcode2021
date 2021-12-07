@@ -1,10 +1,10 @@
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class Day3:
 
     def __init__(self, file: str):
-        self.data = InputReader.input_reader_string(file)
+        self.data = Reader.string(file)
         self.dictionary = {k: [0, 0] for k in range(0, 12)}
 
     def part_1(self) -> int:

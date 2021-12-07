@@ -1,10 +1,10 @@
-from input_reader import InputReader
+from input_reader import Reader
 
 
 class DayXYZ:
 
     def __init__(self, file: str):
-        self.data = InputReader.input_reader_int(file)
+        self.data = Reader.integer(file)
 
     def part_1(self) -> int:
         return 1
