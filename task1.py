@@ -10,7 +10,7 @@ class Day1:
         return sum(1 if self.data[i + 1] > self.data[i] else 0 for i in range(0, len(self.data)-1))
 
     def part_2(self):
-        return sum(1 if sum(self.data[i+1:i+4]) > sum(self.data[i:i+3]) else 0 for i in range(0, len(self.data)-3))
+        return sum(1 if self.data[i+3] > self.data[i] else 0 for i in range(0, len(self.data)-3))
 
 
 if __name__ == '__main__':
