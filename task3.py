@@ -11,7 +11,7 @@ class Day3:
         for item in self.data:
             for i, char in enumerate(item):
                 self.dictionary[i][int(char)] += 1
-        gamma, epsilon = '', ''
+        gamma = epsilon = ''
         for v in self.dictionary.values():
             gamma += '0' if v[0] > v[1] else '1'
             epsilon += '1' if v[0] > v[1] else '0'
@@ -22,35 +22,26 @@ class Day3:
         for char_i in range(0, 12):
             temp_dict = {'0': [], '1': []}
             for i, number in enumerate(oxygen_list):
-                if number[char_i] == '0':
-                    temp_dict['0'].append(i)
-                else:
-                    temp_dict['1'].append(i)
+                temp_dict[number[char_i]].append(i)
             maximum = '1' if len(temp_dict['0']) <= len(temp_dict['1']) else '0'
             oxygen_list = [item for j, item in enumerate(oxygen_list) if j not in temp_dict[maximum]]
             if len(oxygen_list) == 1:
                 break
-        bin_oxygen = int(oxygen_list[0], 2)
 
-        co2_list = self.data
+        co2_list = self.data.copy()
         for char_i in range(0, 12):
             temp_dict = {'0': [], '1': []}
             for i, number in enumerate(co2_list):
-                if number[char_i] == '0':
-                    temp_dict['0'].append(i)
-                else:
-                    temp_dict['1'].append(i)
-            print(temp_dict)
+                temp_dict[number[char_i]].append(i)
             minimum = '0' if len(temp_dict['0']) <= len(temp_dict['1']) else '1'
             co2_list = [item for j, item in enumerate(co2_list) if j not in temp_dict[minimum]]
             if len(co2_list) == 1:
                 break
-        bin_co2 = int(co2_list[0], 2)
-        return bin_oxygen * bin_co2
+        return int(oxygen_list[0], 2) * int(co2_list[0], 2)
 
 
 if __name__ == '__main__':
     day3 = Day3('inputs/task3.txt')
-    # print(day3.data)
+    print(day3.data)
     print(day3.part_1())
     print(day3.part_2())
