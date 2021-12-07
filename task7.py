@@ -9,10 +9,14 @@ class Day7:
         self.data = InputReader.input_reader_one_line_int_list(file)
 
     def part_1(self):
-        return min(sum(abs(fish - value) for fish in self.data) for value in range(0, max(self.data)))
+        return min(
+            sum(abs(fish - value) for fish in self.data)
+            for value in range(0, max(self.data)))
 
     def part_2(self):
-        return min(sum(0.5*abs(fish - value)*(abs(fish - value)+1) for fish in self.data) for value in range(0, max(self.data)))
+        return min(
+            sum(0.5*abs(fish - value)*(abs(fish - value)+1) for fish in self.data)
+            for value in range(0, max(self.data)))
 
 
 if __name__ == '__main__':
