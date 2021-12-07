@@ -1,15 +1,17 @@
+from typing import List
+
 from input_reader import InputReader
 
 
 class Day4:
 
-    def __init__(self, file):
+    def __init__(self, file: str):
         self.data = InputReader.input_reader_string_blank_lines(file)
         self.bingo_numbers = self.data[0].split(',')
         self.squares = [x.split() for x in self.data[1:]]
 
     @staticmethod
-    def is_complete_square(square):
+    def is_complete_square(square: List[str]) -> bool:
         if square.count('X') < 5:
             return False
         # check rows
@@ -22,7 +24,7 @@ class Day4:
                 return True
         return False
 
-    def part_1(self):
+    def part_1(self) -> int:
         for number in self.bingo_numbers:
             for i, square in enumerate(self.squares):
                 try:
@@ -33,7 +35,7 @@ class Day4:
                 except ValueError:
                     continue
 
-    def part_2(self):
+    def part_2(self) -> int:
         my_dictionary = {}
         for i, square in enumerate(self.squares):
             for j, number in enumerate(self.bingo_numbers):

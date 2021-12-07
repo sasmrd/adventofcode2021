@@ -6,11 +6,11 @@ from input_reader import InputReader
 
 class Day5:
 
-    def __init__(self, file):
+    def __init__(self, file: str):
         self.data = [list(map(int, re.split(' -> |,', x))) for x in InputReader.input_reader_string(file)]
         self.coords = defaultdict(int)
 
-    def part_1(self):
+    def part_1(self) -> int:
         for line in self.data:
             x1, y1, x2, y2 = line
             if x1 == x2:
@@ -25,12 +25,10 @@ class Day5:
                 continue
         return sum(x > 1 for x in self.coords.values())
 
-    def part_2(self):
+    def part_2(self) -> int:
         for line in self.data:
             x1, y1, x2, y2 = line
-            if x1 == x2:
-                continue
-            elif y1 == y2:
+            if x1 == x2 or y1 == y2:
                 continue
             else:
                 [x, y] = [x1, y1]
@@ -41,7 +39,7 @@ class Day5:
         return sum(x > 1 for x in self.coords.values())
 
     @staticmethod
-    def sign(value):
+    def sign(value: int) -> int:
         return 1 if value > 0 else -1
 
 

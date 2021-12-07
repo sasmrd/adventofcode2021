@@ -3,15 +3,15 @@ from input_reader import InputReader
 
 class Day7:
 
-    def __init__(self, file):
+    def __init__(self, file: str):
         self.data = InputReader.input_reader_one_line_int_list(file)
 
-    def part_1(self):
+    def part_1(self) -> int:
         return min(
             sum(abs(fish - value) for fish in self.data)
             for value in range(0, max(self.data)))
 
-    def part_2(self):
+    def part_2(self) -> int:
         return min(
             sum(0.5*abs(fish - value)*(abs(fish - value)+1) for fish in self.data)
             for value in range(0, max(self.data)))
