@@ -4,15 +4,11 @@ from input_reader import Reader
 class Day2:
 
     def __init__(self, file: str):
-        self.data = Reader.string(file)
-        self.final_data = self.parse_data()
-
-    def parse_data(self):
-        return [(line.split()[0], int(line.split()[1])) for line in self.data]
+        self.data = [(line.split()[0], int(line.split()[1])) for line in Reader.string(file)]
 
     def part_1(self) -> int:
         x = y = 0
-        for instruction, unit in self.final_data:
+        for instruction, unit in self.data:
             if instruction == 'forward':
                 x += unit
             elif instruction == 'up':
@@ -23,7 +19,7 @@ class Day2:
 
     def part_2(self) -> int:
         x = y = aim = 0
-        for instruction, unit in self.final_data:
+        for instruction, unit in self.data:
             if instruction == 'forward':
                 x += unit
                 y += (aim * unit)
