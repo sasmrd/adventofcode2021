@@ -27,23 +27,22 @@ class Day8:
             fives = [x for x in signals if len(x) == 5]
             sixes = [y for y in signals if len(y) == 6]
 
-            # calculate 3
-            nums[3] = list(filter(lambda five: len(set(five) - set(nums[7])) == 2, fives))[0]
+            nums[3] = list(filter(lambda num: set(nums[7]).issubset(set(num)), fives))[0]
             fives.remove(nums[3])
 
             # calculate 9
-            nums[9] = list(filter(lambda six: len(set(six) - set(nums[4])) == 2, sixes))[0]
+            nums[9] = list(filter(lambda num: set(nums[4]).issubset(set(num)), sixes))[0]
             sixes.remove(nums[9])
 
             # calculate 5
-            nums[5] = list(filter(lambda five: len(set(five) - (set(nums[4]) - set(nums[1]))) == 3, fives))[0]
+            nums[5] = list(filter(lambda num: (set(nums[4]) - set(nums[1])).issubset(set(num)), fives))[0]
             fives.remove(nums[5])
 
             # 2 is left over
             nums[2] = fives[0]
 
             # calculate 6
-            nums[6] = list(filter(lambda six: len(set(six) - set(nums[5])) == 1, sixes))[0]
+            nums[6] = list(filter(lambda num: set(nums[5]).issubset(set(num)), sixes))[0]
             sixes.remove(nums[6])
 
             # 0 is left over
