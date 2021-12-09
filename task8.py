@@ -27,6 +27,7 @@ class Day8:
             fives = [x for x in signals if len(x) == 5]
             sixes = [y for y in signals if len(y) == 6]
 
+            # calculate 3
             nums[3] = list(filter(lambda num: set(nums[7]).issubset(set(num)), fives))[0]
             fives.remove(nums[3])
 
